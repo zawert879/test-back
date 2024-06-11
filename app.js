@@ -6,8 +6,12 @@ app.get('/keka', (req, res) => {
   res.json({keka: 'lola'})
 })
 
+app.get('/api/keka', (req, res) => {
+  res.json({keka: 'lolaKek'})
+})
+
 app.use(function(req, res, next) {
-  res.status(404).send('Sorry cant find that! BACK');
+  res.status(404).send('Sorry cant find that! BACK' + JSON.stringify(req));
 });
 
 app.listen(port, () => {
